@@ -1,6 +1,4 @@
 import random
-import asyncio
-from datetime import date
 from typing import Dict, List, Union
 
 from JaanxMusic import userbot
@@ -13,7 +11,6 @@ assdb = mongodb.assistants
 blacklist_chatdb = mongodb.blacklistChat
 blockeddb = mongodb.blockedusers
 chatsdb = mongodb.chats
-chatdb = mongodb.chat
 channeldb = mongodb.cplaymode
 countdb = mongodb.upcount
 gbansdb = mongodb.gban
