@@ -1,7 +1,7 @@
 <h1 align="center">🎵 ᴊᴀᴀɴ χ ᴍᴜsɪᴄ ʙᴏᴛ 🎵</h1>
 
 <p align="center">
-  <img src="https://graph.org/file/97ec679cd7e3e146cd230.jpg" alt="Jaanx Music Logo" width="600" height="150">
+  <img src="https://graph.org/file/97ec679cd7e3e146cd230.jpg" alt="Jaanx Music Logo" width="600" height="500">
 </p>
 
 <p align="center">
