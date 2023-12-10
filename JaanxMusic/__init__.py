@@ -1,9 +1,10 @@
-from JaanxMusic.core.bot import Aviax
+from JaanxMusic.core.bot import Jaanx
 from JaanxMusic.core.dir import dirr
 from JaanxMusic.core.git import git
 from JaanxMusic.core.userbot import Userbot
 from JaanxMusic.misc import dbb, heroku
 
+from SafoneAPI import SafoneAPI
 from .logging import LOGGER
 
 dirr()
@@ -11,7 +12,8 @@ git()
 dbb()
 heroku()
 
-app = Aviax()
+app = Jaanx()
+api = SafoneAPI()
 userbot = Userbot()
 
 
