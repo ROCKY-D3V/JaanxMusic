@@ -1,7 +1,7 @@
-<h1 align="center">🎵 Aviax Music Bot 🎵</h1>
+<h1 align="center">🎵 ᴊᴀᴀɴ χ ᴍᴜsɪᴄ ʙᴏᴛ 🎵</h1>
 
 <p align="center">
-  <img src="https://telegra.ph/file/29808c1fd50add3b1bfc6.jpg" alt="Aviax Music Logo" width="600" height="150">
+  <img src="https://graph.org/file/97ec679cd7e3e146cd230.jpg" alt="Jaanx Music Logo" width="600" height="150">
 </p>
 
 <p align="center">
@@ -89,7 +89,7 @@ The Aviax Music Bot offers a range of commands to enhance your music listening e
 | `/stop`                 | Stop the bot and clear the queue.           |
 | `/queue`                | Display the list of songs in the queue.     |
 
-For a full list of commands, use `/help` in [telegram](https://t.me/AviaxBeatzBot).
+For a full list of commands, use `/help` in [telegram](http://t.me/JAAN_XD_ROBOT).
 
 ---
 
@@ -127,9 +127,4 @@ For more details, reach out us on telegram.
 This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
 ---
-
-### 🙏 Acknowledgements
-
-Special thanks to all the contributors, supporters, and users of the Aviax Music Bot. Your feedback and support keep us going!
-- [Yukki Music](https://github.com/TeamYukki/YukkiMusicBot) and [AnonXMusic](https://github.com/AnonymousX1025/AnonXMusic) For their Source Codes.
 
