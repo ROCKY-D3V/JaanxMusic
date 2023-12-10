@@ -3,18 +3,18 @@ from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
 from JaanxMusic import YouTube, app
-from JaanxMusic.core.call import Aviax
+from JaanxMusic.core.call import Jaanx
 from JaanxMusic.misc import db
 from JaanxMusic.utils.database import get_loop
 from JaanxMusic.utils.decorators import AdminRightsCheck
 from JaanxMusic.utils.inline import close_markup, stream_markup
 from JaanxMusic.utils.stream.autoclear import auto_clean
-from JaanxMusic.utils.thumbnails import gen_thumb
+from JaanxMusic.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(["skip", "cskip", "next", "cnext"]) & filters.group & ~BANNED_USERS
+    filters.command(["skip", "cskip", "next", "cnext"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.group & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
@@ -48,7 +48,7 @@ async def skip(cli, message: Message, _, chat_id):
                                         ),
                                         reply_markup=close_markup(_),
                                     )
-                                    await Aviax.stop_stream(chat_id)
+                                    await Jaanx.stop_stream(chat_id)
                                 except:
                                     return
                                 break
@@ -75,7 +75,7 @@ async def skip(cli, message: Message, _, chat_id):
                     reply_markup=close_markup(_),
                 )
                 try:
-                    return await Aviax.stop_stream(chat_id)
+                    return await Jaanx.stop_stream(chat_id)
                 except:
                     return
         except:
@@ -86,7 +86,7 @@ async def skip(cli, message: Message, _, chat_id):
                     ),
                     reply_markup=close_markup(_),
                 )
-                return await Aviax.stop_stream(chat_id)
+                return await Jaanx.stop_stream(chat_id)
             except:
                 return
     queued = check[0]["file"]
@@ -111,11 +111,11 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await Aviax.skip_stream(chat_id, link, video=status, image=image)
+            await Jaanx.skip_stream(chat_id, link, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
-        img = await gen_thumb(videoid)
+        img = await get_thumb(videoid)
         run = await message.reply_photo(
             photo=img,
             caption=_["stream_1"].format(
@@ -144,11 +144,11 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             image = None
         try:
-            await Aviax.skip_stream(chat_id, file_path, video=status, image=image)
+            await Jaanx.skip_stream(chat_id, file_path, video=status, image=image)
         except:
             return await mystic.edit_text(_["call_6"])
         button = stream_markup(_, chat_id)
-        img = await gen_thumb(videoid)
+        img = await get_thumb(videoid)
         run = await message.reply_photo(
             photo=img,
             caption=_["stream_1"].format(
@@ -164,7 +164,7 @@ async def skip(cli, message: Message, _, chat_id):
         await mystic.delete()
     elif "index_" in queued:
         try:
-            await Aviax.skip_stream(chat_id, videoid, video=status)
+            await Jaanx.skip_stream(chat_id, videoid, video=status)
         except:
             return await message.reply_text(_["call_6"])
         button = stream_markup(_, chat_id)
@@ -186,7 +186,7 @@ async def skip(cli, message: Message, _, chat_id):
             except:
                 image = None
         try:
-            await Aviax.skip_stream(chat_id, queued, video=status, image=image)
+            await Jaanx.skip_stream(chat_id, queued, video=status, image=image)
         except:
             return await message.reply_text(_["call_6"])
         if videoid == "telegram":
@@ -196,7 +196,7 @@ async def skip(cli, message: Message, _, chat_id):
                 if str(streamtype) == "audio"
                 else config.TELEGRAM_VIDEO_URL,
                 caption=_["stream_1"].format(
-                    config.SUPPORT_GROUP, title[:23], check[0]["dur"], user
+                    config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -209,7 +209,7 @@ async def skip(cli, message: Message, _, chat_id):
                 if str(streamtype) == "audio"
                 else config.TELEGRAM_VIDEO_URL,
                 caption=_["stream_1"].format(
-                    config.SUPPORT_GROUP, title[:23], check[0]["dur"], user
+                    config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -217,7 +217,7 @@ async def skip(cli, message: Message, _, chat_id):
             db[chat_id][0]["markup"] = "tg"
         else:
             button = stream_markup(_, chat_id)
-            img = await gen_thumb(videoid)
+            img = await get_thumb(videoid)
             run = await message.reply_photo(
                 photo=img,
                 caption=_["stream_1"].format(

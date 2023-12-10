@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from JaanxMusic import app
-from JaanxMusic.core.call import Aviax
+from JaanxMusic.core.call import Jaanx
 from JaanxMusic.misc import SUDOERS, db
 from JaanxMusic.utils import AdminRightsCheck
 from JaanxMusic.utils.database import is_active_chat, is_nonadmin_chat
@@ -94,7 +94,7 @@ async def del_back_playlist(client, CallbackQuery, _):
         text=_["admin_32"].format(CallbackQuery.from_user.mention),
     )
     try:
-        await Aviax.speedup_stream(
+        await Jaanx.speedup_stream(
             chat_id,
             file_path,
             speed,
@@ -109,4 +109,4 @@ async def del_back_playlist(client, CallbackQuery, _):
     await mystic.edit_text(
         text=_["admin_34"].format(speed, CallbackQuery.from_user.mention),
         reply_markup=close_markup(_),
-    )
+  )

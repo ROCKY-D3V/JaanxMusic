@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from JaanxMusic import YouTube, app
-from JaanxMusic.core.call import Aviax
+from JaanxMusic.core.call import Jaanx
 from JaanxMusic.misc import db
 from JaanxMusic.utils import AdminRightsCheck, seconds_to_min
 from JaanxMusic.utils.inline import close_markup
@@ -56,7 +56,7 @@ async def seek_comm(cli, message: Message, _, chat_id):
     if "index_" in file_path:
         file_path = playing[0]["vidid"]
     try:
-        await Aviax.seek_stream(
+        await Jaanx.seek_stream(
             chat_id,
             file_path,
             seconds_to_min(to_seek),
